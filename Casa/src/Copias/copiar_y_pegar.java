@@ -54,6 +54,7 @@ public class copiar_y_pegar {
 		Stock actual: 120 
 		% respecto a stock recomendado: 120,00%
 
+<<<<<<< HEAD
 		 // quitar el arraylist y cambiarlo por uno normal en todo el ejercicio 
 		
 		import java.util.Arrays;
@@ -171,3 +172,125 @@ public class copiar_y_pegar {
 		        almacen.generarInforme();
 		    }
 		}
+=======
+		 // quitar el arraylist y cambiarlo por uno normal en todo el ejercicio rapidooo
+>>>>>>> branch 'main' of https://github.com/Camilowp/repositorio_casa.git
+	
+	
+	
+	import java.util.Arrays;
+
+	class Producto {
+	    private String id;
+	    private String nombre;
+	    private double precio;
+	    private int stockActual;
+	    private int stockRecomendado;
+
+	    public Producto(String id, String nombre, double precio, int stockActual, int stockRecomendado) {
+	        this.id = id;
+	        this.nombre = nombre;
+	        this.precio = precio;
+	        this.stockActual = stockActual;
+	        this.stockRecomendado = stockRecomendado;
+	    }
+
+	    public String getId() {
+	        return id;
+	    }
+
+	    public String getNombre() {
+	        return nombre;
+	    }
+
+	    public int getStockActual() {
+	        return stockActual;
+	    }
+
+	    public double getPorcentajeStock() {
+	        return ((double) stockActual / stockRecomendado) * 100;
+	    }
+
+	    public String getRiesgo() {
+	        double porcentaje = getPorcentajeStock();
+	        if (porcentaje < 30) {
+	            return "ALTO";
+	        } else if (porcentaje <= 60) {
+	            return "MODERADO";
+	        } else {
+	            return "SIN";
+	        }
+	    }
+
+	    @Override
+	    public String toString() {
+	        return "> " + id + " - " + nombre +
+	               "\nStock actual: " + stockActual +
+	               "\n% respecto a stock recomendado: " + String.format("%.2f", getPorcentajeStock()) + "%\n";
+	    }
+	}
+
+	public class Almacen {
+	    private Producto[] productos;
+	    private int contador;
+
+	    public Almacen(int capacidad) {
+	        productos = new Producto[capacidad];
+	        contador = 0;
+	    }
+
+	    public void agregarProducto(Producto producto) {
+	        if (contador < productos.length) {
+	            productos[contador++] = producto;
+	        } else {
+	            System.out.println("No se pueden agregar más productos. Capacidad máxima alcanzada.");
+	        }
+	    }
+
+	    public void generarInforme() {
+	        System.out.println("INFORME RIESGO DE STOCK DE PRODUCTOS");
+	        System.out.println("====================================");
+
+	        // Crear una copia del array hasta el número actual de productos
+	        Producto[] productosOrdenados = Arrays.copyOf(productos, contador);
+
+	        // Ordenar productos por nivel de riesgo y porcentaje de stock
+	        Arrays.sort(productosOrdenados, (p1, p2) -> {
+	            int riesgoComparacion = p1.getRiesgo().compareTo(p2.getRiesgo());
+	            if (riesgoComparacion == 0) {
+	                return Double.compare(p1.getPorcentajeStock(), p2.getPorcentajeStock());
+	            }
+	            return riesgoComparacion;
+	        });
+
+	        // Clasificar y mostrar productos por nivel de riesgo
+	        mostrarProductosPorRiesgo(productosOrdenados, "ALTO");
+	        mostrarProductosPorRiesgo(productosOrdenados, "MODERADO");
+	        mostrarProductosPorRiesgo(productosOrdenados, "SIN");
+	    }
+
+	    private void mostrarProductosPorRiesgo(Producto[] productosOrdenados, String nivelRiesgo) {
+	        System.out.println(">>> Riesgo " + nivelRiesgo);
+	        for (Producto producto : productosOrdenados) {
+	            if (producto.getRiesgo().equals(nivelRiesgo)) {
+	                System.out.println(producto);
+	            }
+	        }
+	    }
+
+	    public static void main(String[] args) {
+	        Almacen almacen = new Almacen(100);
+
+	        // Agregar productos
+	        almacen.agregarProducto(new Producto("P002", "Samsung Galaxy S24", 1199.99, 20, 80));
+	        almacen.agregarProducto(new Producto("P005", "Samsung Galaxy S23", 999.99, 13, 100));
+	        almacen.agregarProducto(new Producto("P001", "Portátil HP 15A-NB0004NS", 599.99, 50, 100));
+	        almacen.agregarProducto(new Producto("P003", "Tablet Lenovo Tab M11", 199.99, 30, 50));
+	        almacen.agregarProducto(new Producto("P004", "Auriculares JBL Tune Beam", 89.99, 100, 150));
+	        almacen.agregarProducto(new Producto("P006", "Samsung Galaxy A11", 399.99, 120, 100));
+
+	        // Generar informe
+	        almacen.generarInforme();
+	    }
+	}
+
