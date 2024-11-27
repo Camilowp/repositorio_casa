@@ -78,3 +78,18 @@ public class Main {
         		
 
 //pasame ese ejercicio
+        		
+        		/*Invertir un array. 
+        		Puntos: 3 
+        		Desarrollar dos funciones que reciban, ambas, un array de Strings como 
+        		argumento. 
+        		Las funciones tendrán el mismo objetivo: procesar el array recibido para darle la 
+        		vuelta, es decir, una vez procesado, sus elementos quedarán ordenados en orden 
+        		inverso al recibido. - - 
+        		La primera función utilizará otro array, como elemento auxiliar, para 
+        		ordenar, en orden inverso, los elementos del array recibido. 
+        		La segunda función realizará los cambios necesarios sobre el mismo array 
+        		recibido como argumento. 
+        		Ejemplo: - - 
+        		Array original: ["uno", "dos", "tres", "cuatro", "cinco"]. 
+        		Array después de ser procesado: ["cinco", "cuatro", "tres", "dos", "uno"] */
