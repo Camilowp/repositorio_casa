@@ -7,5 +7,7 @@ public class copiar_y_pegar {
 // CAMILO
 	}
 imprime hola mundo 
+
+PEDAZO DE RATA
 }
 
