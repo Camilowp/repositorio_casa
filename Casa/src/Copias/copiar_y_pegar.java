@@ -6,6 +6,6 @@ public class copiar_y_pegar {
 		// TODO Auto-generated method stub
 // CAMILO
 	}
-GHGHGH
+258285285285282
 }
 
