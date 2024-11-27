@@ -5,68 +5,54 @@ public class copiar_y_pegar {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 // CAMILO
-	}
-imprime hola mundo 
-
-Sustitución de letras minúsculas por mayúsculas. 
-Puntos: 4 
-Implementar un programa que cambie las letras minúsculas que ocupen una 
-posición determinada dentro de una palabra por su equivalente en mayúscula. 
-• Solicitar la introducción de un texto por consola. El texto deberá contener, 
-al menos, 5 palabras o secuencias de caracteres separados por, al menos, 
-un espacio. En caso contrario, se volverá a solicitar la introducción del texto. 
-• A continuación, se pedirá también un número entero mayor a 0. Si el 
-número obtenido es 0 o negativo, se volverá a solicitar. 
-• Procesar el texto recibido para sustituir, en cada una de las palabras que lo 
-componen, el carácter que ocupa la posición n, siendo n el número entero 
-introducido por consola, el mismo carácter en mayúscula, si se trata de una 
-letra minúscula. 
-• Para realizar lo solicitado, crear una función llamada convierteTexto que 
-recibirá dos parámetros: 
-o Un array de Strings, cuyos elementos contendrán las palabras del 
-texto introducido por teclado. 
-o Un número entero, igual al número que el usuario ha proporcionado. 
-• La función modificará cada una de las palabras del array de Strings recibido 
-de la siguiente forma: 
-o Sustituirá el enésimo carácter de cada palabra, siendo n el número 
-entero que recibe como argumento, por su equivalente en 
-mayúscula, si se trata de una letra minúscula. 
-o Si una palabra tiene menos de n caracteres, se cambiará su último 
-carácter por el equivalente en mayúscula, si se trata de una letra 
-minúscula. 
-o La función devolverá el número total de cambios realizados cuando 
-la palabra tenga menos de n caracteres. 
-o La conversión de un carácter a mayúscula se realizará utilizando 
-una nueva función llamada cambiarAMayuscula, con las siguientes 
-características: 
-▪ La función recibirá un carácter como argumento y devolverá, 
-también, un carácter. 
-▪ Para convertir el carácter recibido a mayúscula, restar el 
-número 32, directamente, al carácter si se cumple alguna de 
-las siguientes condiciones: 
-• El carácter recibido es mayor o igual a 'a' y menor o 
-igual a 'z'. 
-1 
-• El carácter recibido es mayor o igual a 'á' y menor o 
-igual a 'ú’. 
-▪ Al restar el número 32 al carácter será necesario hacer una 
-operación de casting a char del resultado obtenido. 
-▪ En caso de que el carácter procesado no sea una letra 
-minúscula, se devolverá el mismo carácter recibido como 
-argumento. 
-• Ejemplo: 
-o Datos proporcionados por el usuario: 
-▪ Texto: 
-Muchos años después, frente al pelotón de fusilamiento 
-▪ Número: 3 
-o Datos devueltos por el programa, después de procesar la 
-información recibida: 
-▪ Texto resultante, después de procesarlo: 
-MuChos añOs deSpués, frEnte aL peLotón dE fuSilamiento 
-▪ Cambios realizados cuando la palabra tiene menos de n (3, 
-en este ejemplo) caracteres: 2 
-}
-
+		3. Informe riesgo rotura stock de productos. 
+		Puntos: 5 
+		Implementar el código necesario para controlar el stock de los productos que se 
+		guardan en un almacén. 
+		Cada producto estará identificado por un código único y tendrá, además, un 
+		nombre para describirlo y el precio. 
+		Por otra parte, el stock indicará el número de unidades disponibles en el almacén. 
+		Existirá también, por cada producto, una cantidad recomendada de unidades a 
+		mantener en stock. 
+		2 
+		El stock, en relación con la cantidad de unidades recomendadas, podrá estar en 
+		alguna de estas situaciones de riesgo respecto a su rotura: - 
+		"Riesgo alto", si es inferior a un 30% - - 
+		"Riesgo moderado", si está entre un 30% y un 60% 
+		"Sin riesgo", si es mayor al 60%  
+		En el almacén habrá un máximo de 100 productos. Se podrá saber, en cualquier 
+		momento, el número de productos existentes. 
+		El programa ofrecerá la posibilidad de mostrar un informe de situación del stock de 
+		todos los productos y el riesgo de rotura que existe: - 
+		Se mostrará un listado con todos los productos, indicando id, nombre, 
+		stock actual y porcentaje de stock respecto al stock recomendado. - 
+		Aparecerán clasificados en orden de mayor a menor riego de rotura. Es 
+		decir, en primer lugar, los productos que tienen mayor riesgo, luego los de 
+		riesgo moderado y, por último, productos sin riesgo de rotura de stock. 
+		Ejemplo de informe: 
+		INFORME RIESGO DE STOCK DE PRODUCTOS 
+		==================================== 
+		>>> Riesgo ALTO 
+		> P002 - Samsung Galaxy S24 
+		Stock actual: 20 
+		% respecto a stock recomendado: 25,00% 
+		> P005 - Samsung Galaxy S23 
+		Stock actual: 13 
+		% respecto a stock recomendado: 13,00% 
+		>>> Riesgo MODERADO 
+		> P001 - Portátil HP 15A-NB0004NS 
+		Stock actual: 50 
+		% respecto a stock recomendado: 50,00% 
+		>>> SIN riesgo 
+		> P003 - Tablet Lenovo Tab M11 
+		Stock actual: 30 
+		% respecto a stock recomendado: 60,00% 
+		> P004 - Auriculares JBL Tune Beam 
+		Stock actual: 100 
+		% respecto a stock recomendado: 66,67% 
+		> P006 - Samsung Galaxy A11 
+		Stock actual: 120 
+		% respecto a stock recomendado: 120,00%
 
 // import java.util.Scanner;
 
