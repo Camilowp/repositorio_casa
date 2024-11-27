@@ -54,4 +54,4 @@ public class copiar_y_pegar {
 		Stock actual: 120 
 		% respecto a stock recomendado: 120,00%
 
-		 // quitar el arraylist y cambiarlo por uno normal en todo el ejercicio 
+		 // quitar el arraylist y cambiarlo por uno normal en todo el ejercicio rapidooo
