@@ -8,7 +8,7 @@ public class copiar_y_pegar {
 	}
 imprime hola mundo 
 
-//CALLESE PEDAZO DE ESTUPIDO
+//sofita busca en chati un codigo x
 }
 
 
