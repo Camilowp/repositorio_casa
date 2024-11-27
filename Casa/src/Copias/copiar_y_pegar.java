@@ -293,4 +293,6 @@ public class copiar_y_pegar {
 	        almacen.generarInforme();
 	    }
 	}
+	´
+	
 
