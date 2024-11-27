@@ -70,72 +70,9 @@ en este ejemplo) caracteres: 2
 
 // import java.util.Scanner;
 
-public class Main {
-    
-    // Función para convertir un carácter a mayúscula
-    public static char cambiarAMayuscula(char caracter) {
-        if ((caracter >= 'a' && caracter <= 'z') || (car
+
         		
 
-//pasame ese ejercicio
+//pasame ese ejercicio ese que está ahí arriba
         		
-        		/*Invertir un array. 
-        		Puntos: 3 
-        		Desarrollar dos funciones que reciban, ambas, un array de Strings como 
-        		argumento. 
-        		Las funciones tendrán el mismo objetivo: procesar el array recibido para darle la 
-        		vuelta, es decir, una vez procesado, sus elementos quedarán ordenados en orden 
-        		inverso al recibido. - - 
-        		La primera función utilizará otro array, como elemento auxiliar, para 
-        		ordenar, en orden inverso, los elementos del array recibido. 
-        		La segunda función realizará los cambios necesarios sobre el mismo array 
-        		recibido como argumento. 
-        		Ejemplo: - - 
-        		Array original: ["uno", "dos", "tres", "cuatro", "cinco"]. 
-        		Array después de ser procesado: ["cinco", "cuatro", "tres", "dos", "uno"] */
-        		
-        		
-        		//resulta
-        		import java.util.Arrays;
-
-        public class Main {
-
-            // Función que utiliza un array auxiliar para invertir el array recibido
-            public static String[] invertirConArrayAuxiliar(String[] array) {
-                String[] invertido = new String[array.length];
-                for (int i = 0; i < array.length; i++) {
-                    invertido[i] = array[array.length - 1 - i];
-                }
-                return invertido;
-            }
-
-            // Función que invierte el array directamente, sin usar un array auxiliar
-            public static void invertirEnElMismoArray(String[] array) {
-                int inicio = 0;
-                int fin = array.length - 1;
-                while (inicio < fin) {
-                    // Intercambiar elementos
-                    String temp = array[inicio];
-                    array[inicio] = array[fin];
-                    array[fin] = temp;
-
-                    inicio++;
-                    fin--;
-                }
-            }
-
-            public static void main(String[] args) {
-                // Ejemplo de uso
-                String[] arrayOriginal = {"uno", "dos", "tres", "cuatro", "cinco"};
-                
-                System.out.println("Array original: " + Arrays.toString(arrayOriginal));
-
-                // Usando la función con un array auxiliar
-                String[] arrayInvertido = invertirConArrayAuxiliar(arrayOriginal);
-                System.out.println("Invertido con array auxiliar: " + Arrays.toString(arrayInvertido));
-
-                // Usando la función que invierte en el mismo array
-                invertirEnElMismoArray(arrayOriginal);
-                System.out.println("Invertido en el mismo array: " + Arrays.toString(arrayOriginal));
-            }
-        }
+        	
