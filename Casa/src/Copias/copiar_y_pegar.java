@@ -93,3 +93,49 @@ public class Main {
         		Ejemplo: - - 
         		Array original: ["uno", "dos", "tres", "cuatro", "cinco"]. 
         		Array después de ser procesado: ["cinco", "cuatro", "tres", "dos", "uno"] */
+        		
+        		
+        		//resulta
+        		import java.util.Arrays;
+
+        public class Main {
+
+            // Función que utiliza un array auxiliar para invertir el array recibido
+            public static String[] invertirConArrayAuxiliar(String[] array) {
+                String[] invertido = new String[array.length];
+                for (int i = 0; i < array.length; i++) {
+                    invertido[i] = array[array.length - 1 - i];
+                }
+                return invertido;
+            }
+
+            // Función que invierte el array directamente, sin usar un array auxiliar
+            public static void invertirEnElMismoArray(String[] array) {
+                int inicio = 0;
+                int fin = array.length - 1;
+                while (inicio < fin) {
+                    // Intercambiar elementos
+                    String temp = array[inicio];
+                    array[inicio] = array[fin];
+                    array[fin] = temp;
+
+                    inicio++;
+                    fin--;
+                }
+            }
+
+            public static void main(String[] args) {
+                // Ejemplo de uso
+                String[] arrayOriginal = {"uno", "dos", "tres", "cuatro", "cinco"};
+                
+                System.out.println("Array original: " + Arrays.toString(arrayOriginal));
+
+                // Usando la función con un array auxiliar
+                String[] arrayInvertido = invertirConArrayAuxiliar(arrayOriginal);
+                System.out.println("Invertido con array auxiliar: " + Arrays.toString(arrayInvertido));
+
+                // Usando la función que invierte en el mismo array
+                invertirEnElMismoArray(arrayOriginal);
+                System.out.println("Invertido en el mismo array: " + Arrays.toString(arrayOriginal));
+            }
+        }
