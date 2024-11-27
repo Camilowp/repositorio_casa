@@ -6,6 +6,6 @@ public class copiar_y_pegar {
 		// TODO Auto-generated method stub
 // CAMILO
 	}
-258285285285282
+imprime hola mundo 
 }
 
