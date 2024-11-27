@@ -8,7 +8,6 @@ public class copiar_y_pegar {
 	}
 imprime hola mundo 
 
-//PEDAZO DE RATA
-//COMO QUE NO 
+//AHORA SI QUE FUNCIONA RATA
 }
 
