@@ -6,6 +6,6 @@ public class copiar_y_pegar {
 		// TODO Auto-generated method stub
 // CAMILO
 	}
-realizando pruebas
+realizando pruebas 1.com
 }
 
