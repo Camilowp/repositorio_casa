@@ -68,3 +68,11 @@ en este ejemplo) caracteres: 2
 }
 
 
+// import java.util.Scanner;
+
+public class Main {
+    
+    // Función para convertir un carácter a mayúscula
+    public static char cambiarAMayuscula(char caracter) {
+        if ((caracter >= 'a' && caracter <= 'z') || (car
+
