@@ -1,7 +1,6 @@
 package Pruebas;
 
 import HerenciaTrabajadores.Analistas;
-import HerenciaTrabajadores.Empleados;
 import HerenciaTrabajadores.JefeDeProyecto;
 import HerenciaTrabajadores.Programadores;
 public class TestEmpleados {
