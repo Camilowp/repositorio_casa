@@ -1,4 +1,5 @@
-package Copias;
+package HerenciaCoches;
+
 // el extends hereda todos los atributos publicos de la clase vehiculo
 public class Coche extends Vehiculo {
 	private int puertas; //variable solo del la herencia

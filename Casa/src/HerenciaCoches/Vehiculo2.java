@@ -1,4 +1,4 @@
-package Copias;
+package HerenciaCoches;
 
 public class Vehiculo2 {
     protected String marca;

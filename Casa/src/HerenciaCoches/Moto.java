@@ -1,4 +1,4 @@
-package Copias;
+package HerenciaCoches;
 
 public class Moto extends Vehiculo2 {
     private boolean tieneABS; // Atributo específico de Moto

@@ -153,7 +153,7 @@ public class Analistas extends Empleados {
 }
 
 
-package Herencia_y_Polimorfismo;
+package HerenciaTrabajadores;
 
 public class Programadores extends Empleados {
 
