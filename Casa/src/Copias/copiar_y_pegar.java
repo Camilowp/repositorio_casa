@@ -1,2 +1,2 @@
 package Copias;
-//puto gay de mierda
+//tengo kkita sek sofita de mi vida rata
