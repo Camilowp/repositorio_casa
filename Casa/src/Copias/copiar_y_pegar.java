@@ -279,3 +279,219 @@ public class Main {
         biblioteca.mostrarPublicaciones();
     }
 }
+
+// quitando el abstract 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+
+class Publicacion {
+    protected String titulo;
+    protected String autor;
+    protected String codigo;
+    protected int anioPublicacion;
+    protected LocalDate fechaDevolucion;
+
+    public Publicacion(String titulo, String autor, String codigo, int anioPublicacion) {
+        this.titulo = titulo;
+        this.autor = autor;
+        this.codigo = codigo;
+        this.anioPublicacion = anioPublicacion;
+        this.fechaDevolucion = LocalDate.MAX;
+    }
+
+    public int getDiasPrestamo() {
+        return 7; // Valor predeterminado
+    }
+
+    public double getSancionDiaria() {
+        return 0.30; // Valor predeterminado
+    }
+
+    public boolean estaDisponible() {
+        return fechaDevolucion.equals(LocalDate.MAX);
+    }
+
+    public void prestar() {
+        fechaDevolucion = LocalDate.now().plusDays(getDiasPrestamo());
+    }
+
+    public double devolver() {
+        if (LocalDate.now().isAfter(fechaDevolucion)) {
+            long diasRetraso = ChronoUnit.DAYS.between(fechaDevolucion, LocalDate.now());
+            double sancion = diasRetraso * getSancionDiaria();
+            fechaDevolucion = LocalDate.MAX;
+            return sancion;
+        }
+        fechaDevolucion = LocalDate.MAX;
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return String.format("Título: %s, Autor: %s, Código: %s, Año: %d, Fecha devolución: %s",
+                titulo, autor, codigo, anioPublicacion, 
+                fechaDevolucion.equals(LocalDate.MAX) ? "Disponible" : dtf.format(fechaDevolucion));
+    }
+}
+
+class Libro extends Publicacion {
+    private int numPaginas;
+    private String genero;
+
+    public Libro(String titulo, String autor, String codigo, int anioPublicacion, int numPaginas, String genero) {
+        super(titulo, autor, codigo, anioPublicacion);
+        this.numPaginas = numPaginas;
+        this.genero = genero;
+    }
+
+    @Override
+    public int getDiasPrestamo() {
+        return 14;
+    }
+
+    @Override
+    public double getSancionDiaria() {
+        return 0.50;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + String.format(", Páginas: %d, Género: %s", numPaginas, genero);
+    }
+}
+
+class Revista extends Publicacion {
+    private int numEdicion;
+    private String periodicidad;
+
+    public Revista(String titulo, String autor, String codigo, int anioPublicacion, int numEdicion, String periodicidad) {
+        super(titulo, autor, codigo, anioPublicacion);
+        this.numEdicion = numEdicion;
+        this.periodicidad = periodicidad;
+    }
+
+    @Override
+    public int getDiasPrestamo() {
+        return 7;
+    }
+
+    @Override
+    public double getSancionDiaria() {
+        return 0.30;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + String.format(", Edición: %d, Periodicidad: %s", numEdicion, periodicidad);
+    }
+}
+
+class Periodico extends Publicacion {
+    private String seccion;
+    private LocalDate fechaPublicacion;
+
+    public Periodico(String titulo, String autor, String codigo, int anioPublicacion, String seccion, LocalDate fechaPublicacion) {
+        super(titulo, autor, codigo, anioPublicacion);
+        this.seccion = seccion;
+        this.fechaPublicacion = fechaPublicacion;
+    }
+
+    @Override
+    public int getDiasPrestamo() {
+        return 3;
+    }
+
+    @Override
+    public double getSancionDiaria() {
+        return 0.20;
+    }
+
+    @Override
+    public String toString() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return super.toString() + String.format(", Sección: %s, Fecha publicación: %s", seccion, dtf.format(fechaPublicacion));
+    }
+}
+
+class Biblioteca {
+    private ArrayList<Publicacion> publicaciones;
+    private static final int MAX_PUBLICACIONES = 100;
+
+    public Biblioteca() {
+        this.publicaciones = new ArrayList<>();
+    }
+
+    public void agregarPublicacion(Publicacion publicacion) {
+        if (publicaciones.size() < MAX_PUBLICACIONES) {
+            publicaciones.add(publicacion);
+            System.out.println("Publicación agregada con éxito.");
+        } else {
+            System.out.println("La biblioteca ha alcanzado su capacidad máxima.");
+        }
+    }
+
+    public void prestarPublicacion(String codigo) {
+        for (Publicacion pub : publicaciones) {
+            if (pub.codigo.equals(codigo) && pub.estaDisponible()) {
+                pub.prestar();
+                System.out.println("Préstamo realizado. Detalles: " + pub);
+                return;
+            }
+        }
+        System.out.println("Publicación no disponible o no encontrada.");
+    }
+
+    public void devolverPublicacion(String codigo) {
+        for (Publicacion pub : publicaciones) {
+            if (pub.codigo.equals(codigo) && !pub.estaDisponible()) {
+                double sancion = pub.devolver();
+                System.out.println("Devolución realizada. Detalles: " + pub);
+                if (sancion > 0) {
+                    System.out.printf("Sanción por retraso: %.2f €\n", sancion);
+                }
+                return;
+            }
+        }
+        System.out.println("Publicación no encontrada o ya devuelta.");
+    }
+
+    public void mostrarPublicaciones() {
+        for (Publicacion pub : publicaciones) {
+            System.out.println(pub);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Biblioteca biblioteca = new Biblioteca();
+
+        // Agregar publicaciones
+        biblioteca.agregarPublicacion(new Libro("El Quijote", "Miguel de Cervantes", "L001", 1605, 863, "Novela"));
+        biblioteca.agregarPublicacion(new Revista("National Geographic", "Various", "R001", 2023, 256, "Mensual"));
+        biblioteca.agregarPublicacion(new Periodico("El País", "Redacción", "P001", 2023, "General", LocalDate.now()));
+
+        // Mostrar publicaciones
+        System.out.println("Publicaciones en la biblioteca:");
+        biblioteca.mostrarPublicaciones();
+
+        // Realizar préstamo
+        System.out.println("\nRealizando préstamo:");
+        biblioteca.prestarPublicacion("L001");
+
+        // Intentar prestar una publicación ya prestada
+        System.out.println("\nIntentando prestar una publicación ya prestada:");
+        biblioteca.prestarPublicacion("L001");
+
+        // Devolver publicación
+        System.out.println("\nDevolviendo publicación:");
+        biblioteca.devolverPublicacion("L001");
+
+        // Mostrar publicaciones actualizadas
+        System.out.println("\nPublicaciones actualizadas:");
+        biblioteca.mostrarPublicaciones();
+    }
+}
