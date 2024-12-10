@@ -68,7 +68,7 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("d-M-yyyy");
 dtf.format(fecha);
 // respuesta 
 
-//quita el plusdate
+//quita el el metodo abstract 
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
