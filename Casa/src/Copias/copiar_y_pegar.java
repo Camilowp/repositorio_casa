@@ -12,3 +12,4 @@ package Copias;
 // QUE PASO co la mama que no te habia respondido 
 // 	QUE PASO DE QUE? DAME CONTEXTO 
 // que ud dijo que estaba brava 
+//porque anoche nos escuchó hablando a todos y despues a mi con sofia 
