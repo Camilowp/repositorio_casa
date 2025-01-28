@@ -9,3 +9,5 @@ package Copias;
 
 
 // bueno luego me cuneta con calma y lujo de detalle
+
+//DALE, PREPARATE QUE A Y MEDIA EMPEZAMOS 
